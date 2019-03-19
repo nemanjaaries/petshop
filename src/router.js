@@ -5,6 +5,7 @@ import About from "./views/About.vue";
 import Articles from "./views/Articles.vue";
 import Blog from "./views/Blog.vue";
 import Contact from "./views/Contact.vue";
+import Article from "./views/Article.vue";
 
 Vue.use(Router);
 
@@ -36,6 +37,11 @@ export default new Router({
       path: "/contact",
       name: "contact",
       component: Contact
+    },
+    {
+      path: "/article",
+      name: "article",
+      component: Article
     }
     // {
     //   path: "/about",

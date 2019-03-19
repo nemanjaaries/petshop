@@ -5,8 +5,7 @@
         class="mb-4"
         :class="{ 'grey--text': !light, 'white--text': light }"
       >
-        <h1 class="header display-1 text-uppercase">{{ head }}</h1>
-        <p class="subheader subheading mt-2">{{ subhead }}</p>
+        <h1 class="header headline text-uppercase">{{ head }}</h1>
       </v-flex>
     </v-layout>
   </div>
@@ -16,7 +15,6 @@
 export default {
   props: {
     head: String,
-    subhead: String,
     light: {
       type: Boolean,
       default: false
@@ -42,7 +40,7 @@ export default {
   content: "";
   display: block;
   margin: 0 auto;
-  width: 15%;
+  width: 35%;
   padding-top: 5px;
   border-bottom: 2px solid gray;
 }
@@ -51,9 +49,9 @@ export default {
   content: "";
   display: block;
   position: relative;
-  top: 50px;
-  left: 46%;
-  width: 8%;
+  top: 43px;
+  left: 40%;
+  width: 20%;
   padding-top: 5px;
   border-bottom: 5px solid #1976d2;
   border-radius: 4px;

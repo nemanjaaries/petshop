@@ -3,7 +3,7 @@
     <nav>
       <v-toolbar flat color="white">
         <v-toolbar-side-icon
-          class="hidden-md-and-up"
+          class="hidden-lg-and-up"
           @click="drawer = true"
         ></v-toolbar-side-icon>
         <v-toolbar-title>
@@ -24,17 +24,17 @@
             >{{ link.title }}</v-btn
           >
         </v-toolbar-items>
-        <div class="hidden-md-and-down ml-5">
-          <v-btn class="px-4" small depressed round color="primary"
-            >uloguj se</v-btn
-          >
-          <v-btn class="px-4" outline small depressed round color="primary"
-            >prijavi se</v-btn
-          >
+        <div class="hidden-sm-and-down ml-5">
+          <LoginForm />
+          <RegisterForm />
         </div>
       </v-toolbar>
-      <v-navigation-drawer app v-model="drawer" clipped class="primary on-top">
-        <v-list dark>
+      <v-navigation-drawer app v-model="drawer" clipped class="white on-top">
+        <v-list>
+          <div class="mb-3">
+            <LoginForm />
+            <RegisterForm />
+          </div>
           <v-list-tile
             v-for="(link, index) in links"
             :key="index"
@@ -42,10 +42,10 @@
             :to="link.route"
           >
             <v-list-tile-action>
-              <v-icon class="white--text">{{ link.icon }}</v-icon>
+              <v-icon class="primary--text">{{ link.icon }}</v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
-              <v-list-tile-title class="white--text text-capitalize">
+              <v-list-tile-title class="primary--text text-capitalize">
                 {{ link.title }}
               </v-list-tile-title>
             </v-list-tile-content>
@@ -57,16 +57,25 @@
 </template>
 
 <script>
+import LoginForm from "@/components/LoginForm.vue";
+import RegisterForm from "@/components/RegisterForm.vue";
 export default {
+  components: {
+    LoginForm,
+    RegisterForm
+  },
   data() {
     return {
       drawer: false,
+      loginDialog: false,
+      registerDialog: false,
       links: [
         { title: "pocetna", route: "/index", icon: "home" },
         { title: "o nama", route: "/about", icon: "location_city" },
         { title: "artikli", route: "/articles", icon: "work_outline" },
         { title: "blog", route: "/blog", icon: "description" },
-        { title: "kontakt", route: "/contact", icon: "contacts" }
+        { title: "kontakt", route: "/contact", icon: "contacts" },
+        { title: "artikal", route: "/article", icon: "subtitles" }
       ]
     };
   }
