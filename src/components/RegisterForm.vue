@@ -39,9 +39,9 @@
           ></v-text-field>
           <v-text-field
             color="primary"
+            type="current-password"
             v-model="password"
             :error-messages="passwordErrors"
-            :counter="10"
             label="Lozinka"
             required
             @input="$v.password.$touch()"
@@ -50,9 +50,9 @@
           <v-text-field
             class="mb-3"
             color="primary"
+            type="current-password"
             v-model="passwordRepeat"
             :error-messages="passwordRepeatErrors"
-            :counter="10"
             label="Ponovi lozinku"
             required
             @input="$v.passwordRepeat.$touch()"
@@ -71,15 +71,15 @@
 
 <script>
 import { validationMixin } from "vuelidate";
-import { required, maxLength, email } from "vuelidate/lib/validators";
+import { required, maxLength, minLength, sameAs, email } from "vuelidate/lib/validators";
 import DialogHeader from "@/components/DialogHeader.vue";
 export default {
   mixins: [validationMixin],
   validations: {
     name: { required, maxLength: maxLength(10) },
     email: { required, email },
-    password: { required, maxLength: maxLength(10) },
-    passwordRepeat: { required, maxLength: maxLength(10) }
+    password: { required, minLength: minLength(8) },
+    passwordRepeat: { required, sameAsPassword: sameAs('password')}
   },
   components: {
     DialogHeader
@@ -112,16 +112,16 @@ export default {
     passwordErrors() {
       const errors = [];
       if (!this.$v.password.$dirty) return errors;
-      !this.$v.password.maxLength &&
-        errors.push("Password must be at most 10 characters long");
+      !this.$v.password.minLength &&
+        errors.push("Password must be more then 8 character!");
       !this.$v.password.required && errors.push("Password is required.");
       return errors;
     },
     passwordRepeatErrors() {
       const errors = [];
       if (!this.$v.passwordRepeat.$dirty) return errors;
-      !this.$v.passwordRepeat.maxLength &&
-        errors.push("Password repeat must be at most 10 characters long");
+      !this.$v.passwordRepeat.sameAsPassword &&
+        errors.push("Password repeat must match password");
       !this.$v.passwordRepeat.required &&
         errors.push("Password repeat is required.");
       return errors;

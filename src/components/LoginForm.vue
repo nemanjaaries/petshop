@@ -21,11 +21,16 @@
             @blur="$v.name.$touch()"
           ></v-text-field>
           <v-text-field
+      
+          type="current-password"
             class="mb-2"
             color="primary"
             v-model="password"
+            :error-messages="passwordErrors"
             label="Lozinka"
             required
+            @input="$v.password.$touch()"
+            @blur="$v.password.$touch()"
           ></v-text-field>
           <!-- <v-btn @click="submit">submit</v-btn>
           <v-btn @click="clear">clear</v-btn>-->
@@ -49,13 +54,13 @@
 
 <script>
 import { validationMixin } from "vuelidate";
-import { required, maxLength, email } from "vuelidate/lib/validators";
+import { required, maxLength, minLength } from "vuelidate/lib/validators";
 import DialogHeader from "@/components/DialogHeader.vue";
 export default {
   mixins: [validationMixin],
   validations: {
     name: { required, maxLength: maxLength(10) },
-    email: { required, email }
+    password: { required, minLength: minLength(8) }
   },
   components: {
     DialogHeader
@@ -77,11 +82,11 @@ export default {
       !this.$v.name.required && errors.push("Name is required.");
       return errors;
     },
-    emailErrors() {
+    passwordErrors() {
       const errors = [];
-      if (!this.$v.email.$dirty) return errors;
-      !this.$v.email.email && errors.push("Must be valid e-mail");
-      !this.$v.email.required && errors.push("E-mail is required");
+      if (!this.$v.password.$dirty) return errors;
+      !this.$v.password.minLength && errors.push("Must be more then 8 character");
+      !this.$v.password.required && errors.push("Password is required");
       return errors;
     }
   },
