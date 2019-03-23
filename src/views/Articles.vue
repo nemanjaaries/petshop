@@ -2,54 +2,12 @@
   <div class="articles">
     <v-container>
       <BaseHeader head="Nasi proizvodi" subhead="Dugogodisnji kvalitet!" />
-
       <v-layout row wrap>
         <v-flex xs12 hidden-md-and-up class="text-xs-center">
-          <v-dialog
-            v-model="dialog"
-            fullscreen
-            hide-overlay
-            transition="dialog-bottom-transition"
-          >
-            <template v-slot:activator="{ on }">
-              <v-btn v-on="on" block round color="primary">filteri</v-btn>
-            </template>
-            <v-card>
-              <div class="close-bar">
-                <v-icon
-                  large
-                  class="right font-weight-bold pa-2"
-                  d-block
-                  @click="dialog = false"
-                  >close</v-icon
-                >
-              </div>
-
-              <p class="subheader">Filteri</p>
-
-              <v-expansion-panel>
-                <v-expansion-panel-content
-                  v-for="(item, index) in categories"
-                  :key="index"
-                >
-                  <template v-slot:header>
-                    <div>{{ item.title }}</div>
-                  </template>
-                  <v-card>
-                    <v-card-text
-                      class="px-5"
-                      v-for="(item, index) in item.items"
-                      :key="index"
-                      >{{ item.title }}</v-card-text
-                    >
-                  </v-card>
-                </v-expansion-panel-content>
-              </v-expansion-panel>
-            </v-card>
-          </v-dialog>
+          <CategoriesDialog :categories="articleCategories" />
         </v-flex>
         <v-flex md2 hidden-sm-and-down>
-          <CategoryList :categories="categories" />
+          <CategoryList :categories="articleCategories" />
         </v-flex>
         <v-spacer></v-spacer>
         <v-flex xs12 md9>
@@ -65,6 +23,15 @@
               >
                 <ArticleCard :article="article" />
               </v-flex>
+              <v-flex xs12>
+                <div class="text-xs-center">
+                  <v-pagination
+                    @input="setPage"
+                    v-model="curentPage"
+                    :length="pages"
+                  ></v-pagination>
+                </div>
+              </v-flex>
             </v-layout>
           </v-container>
         </v-flex>
@@ -76,10 +43,13 @@
 <script>
 import CategoryList from "@/components/CategoryList.vue";
 import ArticleCard from "@/components/ArticleCard.vue";
+import CategoriesDialog from "@/components/CategoriesDialog.vue";
+import { mapState } from "vuex";
 export default {
   components: {
     CategoryList,
-    ArticleCard
+    ArticleCard,
+    CategoriesDialog
   },
   data() {
     return {
@@ -87,94 +57,22 @@ export default {
         height: 0,
         width: 0
       },
-      dialog: false,
-      categories: [
-        {
-          title: "Psi",
-          items: [
-            { title: "Igracke", items: ["riblja kost", "klupko", "lopatica"] },
-            { title: "Hrana", items: ["riblja kost", "klupko", "lopatica"] }
-          ]
-        },
-        {
-          title: "Macke",
-          items: [
-            {
-              title: "Igracke",
-              items: [
-                "riblja kost",
-                "klupko",
-                "lopatica",
-                "riblja kost",
-                "klupko",
-                "lopatica"
-              ]
-            },
-            { title: "Hrana", items: ["riblja kost", "klupko", "lopatica"] }
-          ]
-        },
-        {
-          title: "Ptice",
-          items: [
-            { title: "Igracke", items: ["riblja kost", "klupko", "lopatica"] },
-            { title: "Hrana", items: ["riblja kost", "klupko", "lopatica"] }
-          ]
-        },
-        {
-          title: "Sitne zivotinje",
-          items: [
-            { title: "Igracke", items: ["riblja kost", "klupko", "lopatica"] },
-            { title: "Hrana", items: ["riblja kost", "klupko", "lopatica"] }
-          ]
-        }
-      ],
-      articles: [
-        {
-          title: "Gummy Bones Dog Toy",
-          color: "Color Varies",
-          price: 890,
-          oldPrice: 980,
-          inStock: true
-        },
-        {
-          title: "Cotton Rope with Bones Dog Toy",
-          color: "Color Varies",
-          price: 540,
-          oldPrice: 770,
-          inStock: false
-        },
-        {
-          title: "Gummy Bones Dog Toy",
-          color: "Color Varies",
-          price: 890,
-          oldPrice: 980,
-          inStock: true
-        },
-        {
-          title: "Gummy Bones Dog Toy",
-          color: "Color Varies",
-          price: 890,
-          oldPrice: 980,
-          inStock: true
-        },
-        {
-          title: "Cotton Rope with Bones Dog Toy",
-          color: "Color Varies",
-          price: 540,
-          oldPrice: 770,
-          inStock: true
-        },
-        {
-          title: "Gummy Bones Dog Toy",
-          color: "Color Varies",
-          price: 890,
-          oldPrice: 980,
-          inStock: true
-        }
-      ]
+      curentPage: 1,
+      articlesPerPage: 6
     };
   },
+  computed: {
+    pages() {
+      return Math.ceil(this.articlesTotal / this.articlesPerPage);
+    },
+    ...mapState(["articles", "articlesTotal", "articleCategories"])
+  },
   created() {
+    this.$store.dispatch("fetchArticles", {
+      perPage: this.articlesPerPage,
+      page: this.curentPage
+    });
+    this.$store.dispatch("fetchArticleCategories");
     window.addEventListener("resize", this.handleResize);
     this.handleResize();
   },
@@ -182,6 +80,12 @@ export default {
     window.removeEventListener("resize", this.handleResize);
   },
   methods: {
+    setPage() {
+      this.$store.dispatch("fetchArticles", {
+        perPage: this.articlesPerPage,
+        page: this.curentPage
+      });
+    },
     handleResize() {
       this.window.width = window.innerWidth;
       this.window.height = window.innerHeight;
@@ -195,12 +99,5 @@ export default {
 <style scoped>
 .articles {
   padding: 40px 0;
-}
-.close-bar {
-  height: 50px;
-}
-.subheader {
-  font-size: 1.5em;
-  padding: 0 24px;
 }
 </style>

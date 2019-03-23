@@ -1,5 +1,5 @@
 <template>
-  <v-card style="cursor: pointer;">
+  <v-card router :to="route" class="card">
     <v-img
       contain
       src="https://img2.wantitall.co.za/prodimages/aizara-durable-dog-chew-toys-puppy-chew-toys-tough-rubber-dog-chew-bones-toys-for-large-small-dogs-i__41sgI5kHjfL.jpg"
@@ -52,8 +52,20 @@
 export default {
   props: {
     article: Object
+  },
+  computed: {
+    route() {
+      return "/article/" + this.article.id;
+    }
   }
 };
 </script>
 
-<style></style>
+<style>
+.card {
+  cursor: pointer;
+}
+.card:hover {
+  transform: translateY(-3px);
+}
+</style>

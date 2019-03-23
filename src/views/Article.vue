@@ -1,55 +1,13 @@
 <template>
   <div class="articles">
     <v-container>
-      <BaseHeader head="Pedigree vital" />
-
+      <BaseHeader :head="article.title" subhead="provereno" />
       <v-layout row wrap>
         <v-flex xs12 hidden-md-and-up class="text-xs-center">
-          <v-dialog
-            v-model="dialog"
-            fullscreen
-            hide-overlay
-            transition="dialog-bottom-transition"
-          >
-            <template v-slot:activator="{ on }">
-              <v-btn v-on="on" block round color="primary">filteri</v-btn>
-            </template>
-            <v-card>
-              <div class="close-bar">
-                <v-icon
-                  large
-                  class="right font-weight-bold pa-2"
-                  d-block
-                  @click="dialog = false"
-                  >close</v-icon
-                >
-              </div>
-
-              <p class="subheader">Filteri</p>
-
-              <v-expansion-panel>
-                <v-expansion-panel-content
-                  v-for="(item, index) in categories"
-                  :key="index"
-                >
-                  <template v-slot:header>
-                    <div>{{ item.title }}</div>
-                  </template>
-                  <v-card>
-                    <v-card-text
-                      class="px-5"
-                      v-for="(item, index) in item.items"
-                      :key="index"
-                      >{{ item.title }}</v-card-text
-                    >
-                  </v-card>
-                </v-expansion-panel-content>
-              </v-expansion-panel>
-            </v-card>
-          </v-dialog>
+          <CategoriesDialog :categories="articleCategories" />
         </v-flex>
         <v-flex md2 hidden-sm-and-down>
-          <CategoryList :categories="categories" />
+          <CategoryList :categories="articleCategories" />
         </v-flex>
         <v-spacer></v-spacer>
         <v-flex xs12 md10>
@@ -66,9 +24,13 @@
               <v-flex xs12 sm6>
                 <v-layout align-start justify-space-between column fill-height>
                   <v-flex class="xs8">
-                    <p class="subheading">
+                    <p class="subheading" v-if="article.inStock">
                       <v-icon color="primary">done</v-icon>
                       <span class="pl-2">Na stanju</span>
+                    </p>
+                    <p class="subheading" v-else>
+                      <v-icon color="error">close</v-icon>
+                      <span class="pl-2">Nema na stanju</span>
                     </p>
                     <p class="subheading">
                       <v-icon color="primary">access_time</v-icon>
@@ -79,17 +41,13 @@
                     </p>
                   </v-flex>
                   <v-flex class="xs2">
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Illo, itaque architecto nesciunt amet, repellendus
-                      sapiente distinctio sed officia consectetur, veritatis
-                      perspiciatis excepturi quod. Optio eum ab quos delectus
-                      laudantium magni!
-                    </p>
+                    <p>{{ article.shortDescription }}</p>
                   </v-flex>
                   <v-spacer></v-spacer>
                   <v-flex class="xs2">
-                    <p class="display-3 primary--text">Cena: 900 din.</p>
+                    <p class="display-3 primary--text">
+                      Cena: {{ article.price }} din.
+                    </p>
                   </v-flex>
                 </v-layout>
               </v-flex>
@@ -97,7 +55,7 @@
               <v-flex class="xs12 md6 mt-4">
                 <v-tabs v-model="article.model">
                   <v-tab
-                    v-for="(desc, index) in article.desc"
+                    v-for="(desc, index) in article.descriptions"
                     :key="index"
                     :href="`#tab-${index}`"
                     >{{ desc.title }}</v-tab
@@ -105,7 +63,7 @@
                 </v-tabs>
                 <v-tabs-items v-model="article.model">
                   <v-tab-item
-                    v-for="(desc, index) in article.desc"
+                    v-for="(desc, index) in article.descriptions"
                     :key="index"
                     :value="`tab-${index}`"
                   >
@@ -141,80 +99,23 @@
 
 <script>
 import CategoryList from "@/components/CategoryList.vue";
-import ArticleCard from "@/components/ArticleCard.vue";
+import CategoriesDialog from "@/components/CategoriesDialog.vue";
+
+import { mapState } from "vuex";
 export default {
+  props: ["id"],
   components: {
     CategoryList,
-    ArticleCard
+    CategoriesDialog
   },
   data() {
     return {
-      article: {
-        model: "tab-0",
-        title: "product1",
-        desc: [
-          {
-            title: "opis1",
-            text:
-              "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro."
-          },
-          {
-            title: "opis2",
-            text:
-              "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro."
-          },
-          {
-            title: "opis3",
-            text:
-              "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro."
-          }
-        ]
-      },
       window: {
         height: 0,
         width: 0
       },
       dialog: false,
-      categories: [
-        {
-          title: "Psi",
-          items: [
-            { title: "Igracke", items: ["riblja kost", "klupko", "lopatica"] },
-            { title: "Hrana", items: ["riblja kost", "klupko", "lopatica"] }
-          ]
-        },
-        {
-          title: "Macke",
-          items: [
-            {
-              title: "Igracke",
-              items: [
-                "riblja kost",
-                "klupko",
-                "lopatica",
-                "riblja kost",
-                "klupko",
-                "lopatica"
-              ]
-            },
-            { title: "Hrana", items: ["riblja kost", "klupko", "lopatica"] }
-          ]
-        },
-        {
-          title: "Ptice",
-          items: [
-            { title: "Igracke", items: ["riblja kost", "klupko", "lopatica"] },
-            { title: "Hrana", items: ["riblja kost", "klupko", "lopatica"] }
-          ]
-        },
-        {
-          title: "Sitne zivotinje",
-          items: [
-            { title: "Igracke", items: ["riblja kost", "klupko", "lopatica"] },
-            { title: "Hrana", items: ["riblja kost", "klupko", "lopatica"] }
-          ]
-        }
-      ],
+
       headers: [
         {
           text: "Dessert",
@@ -304,7 +205,12 @@ export default {
       ]
     };
   },
+  computed: {
+    ...mapState(["articleCategories", "article"])
+  },
   created() {
+    this.$store.dispatch("fetchArticleCategories");
+    this.$store.dispatch("fetchArticle", this.id);
     window.addEventListener("resize", this.handleResize);
     this.handleResize();
   },

@@ -45,9 +45,9 @@
               <v-icon class="primary--text">{{ link.icon }}</v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
-              <v-list-tile-title class="primary--text text-capitalize">
-                {{ link.title }}
-              </v-list-tile-title>
+              <v-list-tile-title class="primary--text text-capitalize">{{
+                link.title
+              }}</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
@@ -74,8 +74,7 @@ export default {
         { title: "o nama", route: "/about", icon: "location_city" },
         { title: "artikli", route: "/articles", icon: "work_outline" },
         { title: "blog", route: "/blog", icon: "description" },
-        { title: "kontakt", route: "/contact", icon: "contacts" },
-        { title: "artikal", route: "/article", icon: "subtitles" }
+        { title: "kontakt", route: "/contact", icon: "contacts" }
       ]
     };
   }
