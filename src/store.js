@@ -7,13 +7,34 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     articles: [],
-    articlesTotal: 0,
+    articlesDisplay: [],
+    // articlesTotal: 0,
     articleCategories: [],
     article: {}
+  },
+  getters: {
+    // articlesPriceUp(state) {
+    //   return state.articles.sort((a, b) => {
+    //     return a.price > b.price ? 1 : -1;
+    //   });
+    // }
   },
   mutations: {
     SET_ARTICLES(state, articles) {
       state.articles = articles;
+    },
+    SET_ARTICLES_DISPLAY(state, payload) {
+      state.articlesDisplay = state.articles.slice(payload.start, payload.end);
+    },
+    SORT_ARTICLES_PRICE_UP(state) {
+      state.articles = state.articles.sort((a, b) => {
+        return a.price < b.price ? 1 : -1;
+      });
+    },
+    SORT_ARTICLES_PRICE_DOWN(state) {
+      state.articles = state.articles.sort((a, b) => {
+        return a.price > b.price ? 1 : -1;
+      });
     },
     SET_ARTICLE_CATEGORIES(state, categories) {
       state.articleCategories = categories;
@@ -26,16 +47,45 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    fetchArticles(context, { perPage, page }) {
-      ArticleService.getArticles(perPage, page)
+    // fetchArticles(context, { perPage, page }) {
+    //   ArticleService.getArticles(perPage, page)
+    //     .then(response => {
+    //       context.commit("SET_ARTICLES", response.data);
+    //       context.commit(
+    //         "SET_ARTICLES_TOTAL",
+    //         response.headers["x-total-count"]
+    //       );
+    //     })
+    //     .catch(error => console.log(error.response));
+    // },
+
+    fetchArticles(context, payload) {
+      ArticleService.getArticles()
         .then(response => {
           context.commit("SET_ARTICLES", response.data);
-          context.commit(
-            "SET_ARTICLES_TOTAL",
-            response.headers["x-total-count"]
-          );
+          context.commit("SET_ARTICLES_DISPLAY", payload);
         })
         .catch(error => console.log(error.response));
+    },
+    fetchArticlesByCategory(context, payload) {
+      ArticleService.getArticles(payload)
+        .then(response => {
+          context.commit("SET_ARTICLES", response.data);
+          context.commit("SET_ARTICLES_DISPLAY", payload);
+        })
+        .catch(error => console.log(error.response));
+    },
+    paginateArticles(context, payload) {
+      context.commit("SET_ARTICLES_DISPLAY", payload);
+    },
+    sortArticlesByPrice(context, payload) {
+      if (payload.param) {
+        context.commit("SORT_ARTICLES_PRICE_UP");
+        context.commit("SET_ARTICLES_DISPLAY", payload.range);
+      } else {
+        context.commit("SORT_ARTICLES_PRICE_DOWN");
+        context.commit("SET_ARTICLES_DISPLAY", payload.range);
+      }
     },
     fetchArticleCategories(context) {
       ArticleService.getArticleCategories()

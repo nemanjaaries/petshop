@@ -35,6 +35,7 @@
             <LoginForm />
             <RegisterForm />
           </div>
+
           <v-list-tile
             v-for="(link, index) in links"
             :key="index"
@@ -67,8 +68,6 @@ export default {
   data() {
     return {
       drawer: false,
-      loginDialog: false,
-      registerDialog: false,
       links: [
         { title: "pocetna", route: "/index", icon: "home" },
         { title: "o nama", route: "/about", icon: "location_city" },
@@ -94,5 +93,7 @@ export default {
 }
 .on-top {
   z-index: 1000;
+}
+@media screen and (min-width: 600px) {
 }
 </style>

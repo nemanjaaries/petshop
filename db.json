@@ -2,6 +2,7 @@
   "articles": [
     {
       "id": 1,
+      "category_id": 1,
       "title": "Gummy Bones Dog Toy",
       "shortDescription": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, itaque architecto nesciunt amet, repellendus sapiente distinctio sed officia consectetur, veritatis perspiciatis excepturi quod. Optio eum ab quos delectus laudantium magni!",
       "descriptions": [
@@ -25,6 +26,7 @@
     },
     {
       "id": 2,
+      "category_id": 1,
       "title": "Gummy Bones Dog Toy",
       "shortDescription": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, itaque architecto nesciunt amet, repellendus sapiente distinctio sed officia consectetur, veritatis perspiciatis excepturi quod. Optio eum ab quos delectus laudantium magni!",
       "descriptions": [
@@ -48,6 +50,7 @@
     },
     {
       "id": 3,
+      "category_id": 1,
       "title": "Gummy Bones Dog Toy",
       "shortDescription": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, itaque architecto nesciunt amet, repellendus sapiente distinctio sed officia consectetur, veritatis perspiciatis excepturi quod. Optio eum ab quos delectus laudantium magni!",
       "descriptions": [
@@ -71,6 +74,7 @@
     },
     {
       "id": 4,
+      "category_id": 2,
       "title": "Gummy Bones Dog Toy",
       "shortDescription": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, itaque architecto nesciunt amet, repellendus sapiente distinctio sed officia consectetur, veritatis perspiciatis excepturi quod. Optio eum ab quos delectus laudantium magni!",
       "descriptions": [
@@ -94,6 +98,7 @@
     },
     {
       "id": 5,
+      "category_id": 2,
       "title": "Gummy Bones Dog Toy",
       "shortDescription": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, itaque architecto nesciunt amet, repellendus sapiente distinctio sed officia consectetur, veritatis perspiciatis excepturi quod. Optio eum ab quos delectus laudantium magni!",
       "descriptions": [
@@ -117,6 +122,7 @@
     },
     {
       "id": 6,
+      "category_id": 2,
       "title": "Gummy Bones Dog Toy",
       "shortDescription": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, itaque architecto nesciunt amet, repellendus sapiente distinctio sed officia consectetur, veritatis perspiciatis excepturi quod. Optio eum ab quos delectus laudantium magni!",
       "descriptions": [
@@ -140,6 +146,7 @@
     },
     {
       "id": 7,
+      "category_id": 3,
       "title": "Gummy Bones Dog Toy",
       "shortDescription": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, itaque architecto nesciunt amet, repellendus sapiente distinctio sed officia consectetur, veritatis perspiciatis excepturi quod. Optio eum ab quos delectus laudantium magni!",
       "descriptions": [
@@ -163,6 +170,7 @@
     },
     {
       "id": 8,
+      "category_id": 3,
       "title": "Gummy Bones Dog Toy",
       "shortDescription": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, itaque architecto nesciunt amet, repellendus sapiente distinctio sed officia consectetur, veritatis perspiciatis excepturi quod. Optio eum ab quos delectus laudantium magni!",
       "descriptions": [
@@ -186,6 +194,7 @@
     },
     {
       "id": 9,
+      "category_id": 3,
       "title": "Gummy Bones Dog Toy",
       "shortDescription": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, itaque architecto nesciunt amet, repellendus sapiente distinctio sed officia consectetur, veritatis perspiciatis excepturi quod. Optio eum ab quos delectus laudantium magni!",
       "descriptions": [
@@ -209,6 +218,7 @@
     },
     {
       "id": 10,
+      "category_id": 1,
       "title": "Gummy Bones Dog Toy",
       "shortDescription": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, itaque architecto nesciunt amet, repellendus sapiente distinctio sed officia consectetur, veritatis perspiciatis excepturi quod. Optio eum ab quos delectus laudantium magni!",
       "descriptions": [
@@ -233,6 +243,7 @@
   ],
   "categories": [
     {
+      "id": 1,
       "title": "Psi",
       "items": [
         { "title": "Igracke", "items": ["riblja kost", "klupko", "lopatica"] },
@@ -240,6 +251,7 @@
       ]
     },
     {
+      "id": 2,
       "title": "Macke",
       "items": [
         {
@@ -257,6 +269,7 @@
       ]
     },
     {
+      "id": 3,
       "title": "Ptice",
       "items": [
         { "title": "Igracke", "items": ["riblja kost", "klupko", "lopatica"] },
@@ -264,11 +277,30 @@
       ]
     },
     {
+      "id": 4,
       "title": "Sitne zivotinje",
       "items": [
         { "title": "Igracke", "items": ["riblja kost", "klupko", "lopatica"] },
         { "title": "Hrana", "items": ["riblja kost", "klupko", "lopatica"] }
       ]
+    }
+  ],
+  "categories1": [
+    {
+      "id": 1,
+      "title": "Psi"
+    },
+    {
+      "id": 2,
+      "title": "Macke"
+    },
+    {
+      "id": 3,
+      "title": "Ptice"
+    },
+    {
+      "id": 4,
+      "title": "Sitne zivotinje"
     }
   ]
 }

@@ -3,7 +3,11 @@
     <p class="headline primary--text mb-3">Artikli</p>
 
     <ul class="category-list">
-      <li v-for="(category, index) in categories" :key="index">
+      <li
+        v-for="(category, index) in categories"
+        :key="index"
+        @click="search(category.id)"
+      >
         <p>{{ category.title }}</p>
         <ul>
           <li v-for="(item, index) in category.items" :key="index">
@@ -21,6 +25,12 @@
 export default {
   props: {
     categories: Array
+  },
+  methods: {
+    search(cat_id) {
+      // console.log(cat_id);
+      this.$store.dispatch("fetchArticlesByCategory", cat_id);
+    }
   }
 };
 </script>
