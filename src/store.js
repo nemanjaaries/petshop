@@ -10,7 +10,8 @@ export default new Vuex.Store({
     articlesDisplay: [],
     // articlesTotal: 0,
     articleCategories: [],
-    article: {}
+    article: {},
+    messages: []
   },
   getters: {
     // articlesPriceUp(state) {
@@ -44,6 +45,9 @@ export default new Vuex.Store({
     },
     SET_ARTICLES_TOTAL(state, total) {
       state.articlesTotal = total;
+    },
+    SET_MESSAGES(state, payload) {
+      state.messages = payload;
     }
   },
   actions: {
@@ -64,6 +68,13 @@ export default new Vuex.Store({
         .then(response => {
           context.commit("SET_ARTICLES", response.data);
           context.commit("SET_ARTICLES_DISPLAY", payload);
+        })
+        .catch(error => console.log(error.response));
+    },
+    fetchMessages(context) {
+      ArticleService.getMessages()
+        .then(response => {
+          context.commit("SET_MESSAGES", response.data);
         })
         .catch(error => console.log(error.response));
     },

@@ -28,6 +28,9 @@ export default {
       return instance.get("/articles");
     }
   },
+  getMessages() {
+    return instance.get("/messages");
+  },
   getArticleCategories() {
     return instance.get("/categories");
   },

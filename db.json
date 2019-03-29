@@ -302,5 +302,34 @@
       "id": 4,
       "title": "Sitne zivotinje"
     }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "userName": "Marko Markovic",
+      "questionTime": "2019-03-28 21:25:18",
+      "userText": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas provident, soluta hic dignissimos laudantium deleniti eligendi perferendis quasi laborum et?",
+      "adminName": "Tacin Shop",
+      "answerTime": "2019-03-29 15:28:40",
+      "adminText": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas provident, soluta hic dignissimos laudantium deleniti eligendi perferendis quasi laborum et?"
+    },
+    {
+      "id": 2,
+      "userName": "Bogdan Bogdanovic",
+      "questionTime": "2019-02-24 11:23:18",
+      "userText": "Lorem ipsum dolor sit amet consectetur, eligendi perferendis quasi laborum et adipisicing elit. Voluptas provident, soluta hic dignissimos laudantium deleniti eligendi perferendis quasi laborum et?",
+      "adminName": "Tacin Shop",
+      "answerTime": "2019-02-29 16:28:40",
+      "adminText": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas provident, soluta hic dignissimos laudantium deleniti laborum et?"
+    },
+    {
+      "id": 3,
+      "userName": "Stefan",
+      "questionTime": "2019-03-10 21:00:18",
+      "userText": "Lorem ipsum dolor sit amet consectetur?",
+      "adminName": "Tacin Shop",
+      "answerTime": "2019-03-11 12:28:50",
+      "adminText": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas provident, soluta hic dignissimos laudantium deleniti eligendi perferendis quasi laborum et?"
+    }
   ]
 }

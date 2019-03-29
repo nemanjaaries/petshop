@@ -5,7 +5,7 @@
         class="mb-4"
         :class="{ 'grey--text': !light, 'white--text': light }"
       >
-        <h1 class="header display-1 text-uppercase">{{ head }}</h1>
+        <h1 class="header headline text-uppercase">{{ head }}</h1>
         <p class="subheader subheading mt-2">{{ subhead }}</p>
       </v-flex>
     </v-layout>
@@ -51,7 +51,7 @@ export default {
   content: "";
   display: block;
   position: relative;
-  top: 50px;
+  top: 44px;
   left: 46%;
   width: 8%;
   padding-top: 5px;
