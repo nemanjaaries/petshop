@@ -11,7 +11,10 @@ export default new Vuex.Store({
     // articlesTotal: 0,
     articleCategories: [],
     article: {},
-    messages: []
+    messages: [],
+    /////////////////blog state///////////////////////////////
+    editorDelta: undefined,
+    editorContent: ""
   },
   getters: {
     // articlesPriceUp(state) {
@@ -19,6 +22,14 @@ export default new Vuex.Store({
     //     return a.price > b.price ? 1 : -1;
     //   });
     // }
+
+    ////////////blog getters///////////
+    editorDelta(state) {
+      return state.editorDelta;
+    },
+    editorContent(state) {
+      return state.editorContent;
+    }
   },
   mutations: {
     SET_ARTICLES(state, articles) {
@@ -48,6 +59,14 @@ export default new Vuex.Store({
     },
     SET_MESSAGES(state, payload) {
       state.messages = payload;
+    },
+    ///////////////blog mutation//////////////////
+
+    SET_EDITOR_DELTA(state, payload) {
+      state.editorDelta = payload;
+    },
+    SET_EDITOR_CONTENT(state, payload) {
+      state.editorContent = payload;
     }
   },
   actions: {
@@ -111,6 +130,14 @@ export default new Vuex.Store({
           context.commit("SET_ARTICLE", response.data);
         })
         .catch(error => console.log(error.response));
+    },
+    ///////////blog actions///////////////
+
+    setEditorDelta(context, payload) {
+      context.commit("SET_EDITOR_DELTA", payload);
+    },
+    setEditorContent(context, payload) {
+      context.commit("SET_EDITOR_CONTENT", payload);
     }
   }
 });
