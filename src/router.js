@@ -4,6 +4,7 @@ import Home from "./views/Home.vue";
 import About from "./views/About.vue";
 import Articles from "./views/Articles.vue";
 import Blog from "./views/Blog.vue";
+import Blogs from "./views/Blogs.vue";
 import Contact from "./views/Contact.vue";
 import Article from "./views/Article.vue";
 import BlogPreview from "./views/BlogPreview.vue";
@@ -49,6 +50,11 @@ export default new Router({
       path: "/preview",
       name: "preview",
       component: BlogPreview
+    },
+    {
+      path: "/blogs",
+      name: "blogs",
+      component: Blogs
     }
     // {
     //   path: "/about",

@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import ArticleService from "@/services/ArticleService.js";
+import BlogService from "@/services/BlogService.js";
 
 Vue.use(Vuex);
 
@@ -14,7 +15,10 @@ export default new Vuex.Store({
     messages: [],
     /////////////////blog state///////////////////////////////
     editorDelta: undefined,
-    editorContent: ""
+    editorContent: "",
+    blogs: [],
+    blogsDisplay: [],
+    blogCategories: []
   },
   getters: {
     // articlesPriceUp(state) {
@@ -67,6 +71,15 @@ export default new Vuex.Store({
     },
     SET_EDITOR_CONTENT(state, payload) {
       state.editorContent = payload;
+    },
+    SET_BLOGS(state, blogs) {
+      state.blogs = blogs;
+    },
+    SET_BLOGS_DISPLAY(state, payload) {
+      state.blogsDisplay = state.blogs.slice(payload.start, payload.end);
+    },
+    SET_BLOG_CATEGORIES(state, blogs) {
+      state.blogCategories = blogs;
     }
   },
   actions: {
@@ -98,10 +111,10 @@ export default new Vuex.Store({
         .catch(error => console.log(error.response));
     },
     fetchArticlesByCategory(context, payload) {
-      ArticleService.getArticles(payload)
+      ArticleService.getArticles(payload.cat_id)
         .then(response => {
           context.commit("SET_ARTICLES", response.data);
-          context.commit("SET_ARTICLES_DISPLAY", payload);
+          context.commit("SET_ARTICLES_DISPLAY", payload.range);
         })
         .catch(error => console.log(error.response));
     },
@@ -138,6 +151,34 @@ export default new Vuex.Store({
     },
     setEditorContent(context, payload) {
       context.commit("SET_EDITOR_CONTENT", payload);
+    },
+    fetchBlogs(context, payload) {
+      BlogService.getBlogs()
+        .then(response => {
+          context.commit("SET_BLOGS", response.data);
+          context.commit("SET_BLOGS_DISPLAY", payload);
+        })
+        .catch(error => console.log(error.response));
+    },
+    fetchBlogCategories(context) {
+      BlogService.getBlogCategories()
+        .then(response => {
+          context.commit("SET_BLOG_CATEGORIES", response.data);
+        })
+        .catch(error => console.log(error.response));
+    },
+    paginateBlogs(context, payload) {
+      context.commit("SET_BLOGS_DISPLAY", payload);
+    },
+    fetchBlogsByCategory(context, payload) {
+      BlogService.getBlogs(payload.cat_id)
+        .then(response => {
+          console.log(payload.range);
+          context.commit("SET_BLOGS", response.data);
+
+          context.commit("SET_BLOGS_DISPLAY", payload.range);
+        })
+        .catch(error => console.log(error.response));
     }
   }
 });

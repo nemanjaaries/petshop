@@ -25,6 +25,78 @@
       "inStock": true
     },
     {
+      "id": 1,
+      "category_id": 1,
+      "title": "Gummy Bones Dog Toy",
+      "shortDescription": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, itaque architecto nesciunt amet, repellendus sapiente distinctio sed officia consectetur, veritatis perspiciatis excepturi quod. Optio eum ab quos delectus laudantium magni!",
+      "descriptions": [
+        {
+          "title": "opis 1",
+          "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro."
+        },
+        {
+          "title": "opis 2",
+          "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro."
+        },
+        {
+          "title": "opis 3",
+          "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro."
+        }
+      ],
+      "color": "Color Varies",
+      "price": 890,
+      "oldPrice": 980,
+      "inStock": true
+    },
+    {
+      "id": 1,
+      "category_id": 1,
+      "title": "Gummy Bones Dog Toy",
+      "shortDescription": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, itaque architecto nesciunt amet, repellendus sapiente distinctio sed officia consectetur, veritatis perspiciatis excepturi quod. Optio eum ab quos delectus laudantium magni!",
+      "descriptions": [
+        {
+          "title": "opis 1",
+          "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro."
+        },
+        {
+          "title": "opis 2",
+          "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro."
+        },
+        {
+          "title": "opis 3",
+          "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro."
+        }
+      ],
+      "color": "Color Varies",
+      "price": 890,
+      "oldPrice": 980,
+      "inStock": true
+    },
+    {
+      "id": 1,
+      "category_id": 1,
+      "title": "Gummy Bones Dog Toy",
+      "shortDescription": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, itaque architecto nesciunt amet, repellendus sapiente distinctio sed officia consectetur, veritatis perspiciatis excepturi quod. Optio eum ab quos delectus laudantium magni!",
+      "descriptions": [
+        {
+          "title": "opis 1",
+          "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro."
+        },
+        {
+          "title": "opis 2",
+          "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro."
+        },
+        {
+          "title": "opis 3",
+          "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim voluptates aliquid similique eaque distinctio cupiditate corrupti quam non, consectetur labore unde. Ipsa deleniti eius reiciendis doloribus laboriosam provident maiores dolore assumenda tenetur et? Doloribus nesciunt provident cupiditate dignissimos mollitia asperiores iste fugit, ex eveniet soluta culpa odit quisquam incidunt porro."
+        }
+      ],
+      "color": "Color Varies",
+      "price": 890,
+      "oldPrice": 980,
+      "inStock": true
+    },
+    {
       "id": 2,
       "category_id": 1,
       "title": "Gummy Bones Dog Toy",
@@ -330,6 +402,50 @@
       "adminName": "Tacin Shop",
       "answerTime": "2019-03-11 12:28:50",
       "adminText": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas provident, soluta hic dignissimos laudantium deleniti eligendi perferendis quasi laborum et?"
+    }
+  ],
+  "blogs": [
+    {
+      "id": 1,
+      "category_id": 1,
+      "title": "Lorem dolor sit 1 psi",
+      "text": "Contrary to popular belief, Lorem Ipsum is not simply random text. Ihas roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, , comes from a line in section 1.10.32"
+    },
+    {
+      "id": 2,
+      "category_id": 1,
+      "title": "Lorem dolor sit 2 psi",
+      "text": "Contrary to popular belief, Lorem Ipsum is not simply random text. Ihas roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, , comes from a line in section 1.10.32"
+    },
+    {
+      "id": 3,
+      "category_id": 2,
+      "title": "Lorem dolor sit 3 macke",
+      "text": "Contrary to popular belief, Lorem Ipsum is not simply random text. Ihas roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, , comes from a line in section 1.10.32"
+    },
+    {
+      "id": 4,
+      "category_id": 2,
+      "title": "Lorem dolor sit 4 macke",
+      "text": "Contrary to popular belief, Lorem Ipsum is not simply random text. Ihas roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, , comes from a line in section 1.10.32"
+    },
+    {
+      "id": 5,
+      "category_id": 3,
+      "title": "Lorem dolor sit 5 ptice",
+      "text": "Contrary to popular belief, Lorem Ipsum is not simply random text. Ihas roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, , comes from a line in section 1.10.32"
+    },
+    {
+      "id": 6,
+      "category_id": 2,
+      "title": "Lorem dolor sit 4 macke",
+      "text": "Contrary to popular belief, Lorem Ipsum is not simply random text. Ihas roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, , comes from a line in section 1.10.32"
+    },
+    {
+      "id": 7,
+      "category_id": 2,
+      "title": "Lorem dolor sit 4 macke",
+      "text": "Contrary to popular belief, Lorem Ipsum is not simply random text. Ihas roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, , comes from a line in section 1.10.32"
     }
   ]
 }

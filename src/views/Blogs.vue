@@ -1,49 +1,40 @@
 <template>
   <div class="articles">
     <v-container>
-      <BaseHeader head="Nasi proizvodi" subhead="Dugogodisnji kvalitet!" />
+      <BaseHeader head="Nasi blogovi" subhead />
       <v-layout row wrap>
         <v-flex xs12 hidden-md-and-up class="text-xs-center">
-          <CategoriesDialog
-            :categories="articleCategories"
+          <BlogCategoriesDialog
+            :categories="blogCategories"
             :currentPage="currentPage"
-            :articlesPerPage="articlesPerPage"
+            :blogsPerPage="blogsPerPage"
           />
         </v-flex>
         <v-flex md2 hidden-sm-and-down>
-          <CategoryList
-            :categories="articleCategories"
+          <BlogCategoryList
+            :categories="blogCategories"
             :currentPage="currentPage"
-            :articlesPerPage="articlesPerPage"
+            :blogsPerPage="blogsPerPage"
           />
         </v-flex>
         <v-spacer></v-spacer>
-        <v-flex xs12 md9>
-          <v-container fluid grid-list-xl pa-0>
-            <v-layout row wrap>
-              <v-flex xs12 small class="text-xs-right">
-                <v-select
-                  @input="sort"
-                  :items="items"
-                  label="Sortiraj"
-                  full-width
-                  outline
-                  class="select"
-                ></v-select>
-              </v-flex>
+        <v-flex xs12 md10>
+          <v-container fluid pa-0>
+            <v-layout column wrap>
               <v-flex
-                v-for="(article, index) in articlesDisplay"
+                v-for="(blog, index) in blogsDisplay"
                 :key="index"
                 d-flex
                 xs12
                 sm6
                 md4
               >
-                <ArticleCard :article="article" />
+                <BlogCardLarge :blog="blog" />
               </v-flex>
               <v-flex xs12>
                 <div class="text-xs-center">
                   <v-pagination
+                    v-if="pages > 1"
                     @input="setPage"
                     v-model="currentPage"
                     :length="pages"
@@ -59,18 +50,20 @@
 </template>
 
 <script>
-import CategoryList from "@/components/CategoryList.vue";
-import ArticleCard from "@/components/ArticleCard.vue";
-import CategoriesDialog from "@/components/CategoriesDialog.vue";
+import BlogCategoryList from "@/components/BlogCategoryList.vue";
+import BlogCategoriesDialog from "@/components/BlogCategoriesDialog.vue";
+import BlogCardLarge from "@/components/BlogCardLarge.vue";
 import { mapState, mapGetters } from "vuex";
 export default {
   components: {
-    CategoryList,
-    ArticleCard,
-    CategoriesDialog
+    BlogCategoryList,
+    BlogCardLarge,
+    BlogCategoriesDialog
   },
   data() {
     return {
+      dialog: false,
+
       items: [
         { text: "cena rastuce", value: 0 },
         { text: "cena opadajuce", value: 1 }
@@ -80,25 +73,20 @@ export default {
         width: 0
       },
       currentPage: 1,
-      articlesPerPage: 6
+      blogsPerPage: 3
     };
   },
   computed: {
     pages() {
-      return Math.ceil(this.articles.length / this.articlesPerPage);
+      return Math.ceil(this.blogs.length / this.blogsPerPage);
     },
     pageRange() {
       return {
-        start: this.currentPage * this.articlesPerPage - this.articlesPerPage,
-        end: this.currentPage * this.articlesPerPage
+        start: this.currentPage * this.blogsPerPage - this.blogsPerPage,
+        end: this.currentPage * this.blogsPerPage
       };
     },
-    ...mapState([
-      "articles",
-      "articlesDisplay",
-      "articlesTotal",
-      "articleCategories"
-    ]),
+    ...mapState(["blogs", "blogsDisplay", "blogCategories"]),
     ...mapGetters([])
   },
   created() {
@@ -107,9 +95,9 @@ export default {
     //   page: this.curentPage
     // });
 
-    this.$store.dispatch("fetchArticles", this.pageRange);
+    this.$store.dispatch("fetchBlogs", this.pageRange);
 
-    this.$store.dispatch("fetchArticleCategories");
+    this.$store.dispatch("fetchBlogCategories");
     window.addEventListener("resize", this.handleResize);
     this.handleResize();
   },
@@ -117,18 +105,13 @@ export default {
     window.removeEventListener("resize", this.handleResize);
   },
   methods: {
-    sort(param) {
-      this.$store.dispatch("sortArticlesByPrice", {
-        param,
-        range: this.pageRange
-      });
-    },
     setPage() {
       // this.$store.dispatch("fetchArticles", {
       //   perPage: this.articlesPerPage,
       //   page: this.curentPage
       // });
-      this.$store.dispatch("paginateArticles", this.pageRange);
+      this.$store.dispatch("paginateBlogs", this.pageRange);
+      window.scrollTo(0, 0);
     },
     handleResize() {
       this.window.width = window.innerWidth;

@@ -4,35 +4,11 @@
       <BaseHeader light head="Blog" subhead="Podelite svoju pricu" />
       <v-layout row wrap justify-center>
         <v-flex v-for="(i, index) in 3" :key="index" xs12 sm6 md3>
-          <v-card class="on-top ma-1">
-            <v-img src="racoon.jpg" aspect-ratio="1.25"></v-img>
-
-            <v-card-title primary-title class="text-xs-left">
-              <span class="grey--text">21.06.2018.</span>
-              <br />
-              <div>
-                <h3 class="headline mt-1 mb-3 font-weight-medium">
-                  Naslov lorem ipsum
-                </h3>
-                <div>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
-                  officia voluptatem dolorum expedita atque excepturi. Soluta
-                  ipsum dolor magnam voluptatem dolorum expedita impedit id
-                  numquam?
-                </div>
-              </div>
-            </v-card-title>
-
-            <v-card-actions class="px-0">
-              <v-btn flat color="primary" class="font-weight-medium"
-                >Procitajte vise</v-btn
-              >
-            </v-card-actions>
-          </v-card>
+          <BlogCardSmall />
         </v-flex>
         <v-flex xs12 class="text-xs-center mt-4 on-top">
-          <v-btn outline large depressed round color="white">
-            <span class="text-capitalize">Procitaj</span>&nbsp;
+          <v-btn router to="/blogs" outline large depressed round color="white">
+            <span class="text-capitalize">Pogledajte</span>&nbsp;
             <span class="text-lowercase">sve</span>
           </v-btn>
         </v-flex>
@@ -40,7 +16,14 @@
     </v-container>
   </div>
 </template>
-<script></script>
+<script>
+import BlogCardSmall from "@/components/BlogCardSmall.vue";
+export default {
+  components: {
+    BlogCardSmall
+  }
+};
+</script>
 <style scoped>
 .blog {
   position: relative;

@@ -31,10 +31,11 @@
           </template>
           <v-card>
             <v-card-text
+              @click="search(item.id)"
               class="px-5"
-              v-for="(item, index) in item.items"
+              v-for="(sub, index) in item.items"
               :key="index"
-              >{{ item.title }}</v-card-text
+              >{{ sub.title }}</v-card-text
             >
           </v-card>
         </v-expansion-panel-content>
@@ -46,12 +47,24 @@
 <script>
 export default {
   props: {
-    categories: Array
+    categories: Array,
+    currentPage: Number,
+    articlesPerPage: Number
   },
   data() {
     return {
       dialog: false
     };
+  },
+  methods: {
+    search(cat_id) {
+      // console.log(cat_id);
+      this.$store.dispatch("fetchArticlesByCategory", {
+        range: { start: 0, end: this.articlesPerPage },
+        cat_id
+      });
+      this.dialog = false;
+    }
   }
 };
 </script>

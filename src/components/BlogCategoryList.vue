@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="headline primary--text mb-3">Artikli</p>
+    <p class="headline primary--text mb-3">Kategorije</p>
 
     <ul class="category-list">
       <li
@@ -9,13 +9,7 @@
         @click="search(category.id)"
       >
         <p>{{ category.title }}</p>
-        <ul>
-          <li v-for="(item, index) in category.items" :key="index">
-            {{ item.title }}
-            <span class="right">({{ item.items.length }})</span>
-          </li>
-        </ul>
-        <div v-show="index != categories.length - 1" class="list-divider"></div>
+        <div class="list-divider"></div>
       </li>
     </ul>
   </div>
@@ -26,13 +20,12 @@ export default {
   props: {
     categories: Array,
     currentPage: Number,
-    articlesPerPage: Number
+    blogsPerPage: Number
   },
   methods: {
     search(cat_id) {
-      // console.log(cat_id);
-      this.$store.dispatch("fetchArticlesByCategory", {
-        range: { start: 0, end: this.articlesPerPage },
+      this.$store.dispatch("fetchBlogsByCategory", {
+        range: { start: 0, end: this.blogsPerPage },
         cat_id
       });
     }
@@ -58,6 +51,10 @@ export default {
 .category-list p {
   font-size: 1.3em;
   margin-bottom: 0.3em;
+  cursor: pointer;
+}
+.category-list p:hover {
+  color: #1976d2;
 }
 
 .list-divider {
@@ -65,6 +62,6 @@ export default {
   padding: 0;
   background-color: #d6caca;
   height: 1px;
-  max-width: 100px;
+  width: 80%;
 }
 </style>
