@@ -44,12 +44,12 @@ export default new Vuex.Store({
     },
     SORT_ARTICLES_PRICE_UP(state) {
       state.articles = state.articles.sort((a, b) => {
-        return a.price < b.price ? 1 : -1;
+        return a.pro_akcijskacena < b.pro_akcijskacena ? 1 : -1;
       });
     },
     SORT_ARTICLES_PRICE_DOWN(state) {
       state.articles = state.articles.sort((a, b) => {
-        return a.price > b.price ? 1 : -1;
+        return a.pro_akcijskacena > b.pro_akcijskacena ? 1 : -1;
       });
     },
     SET_ARTICLE_CATEGORIES(state, categories) {
@@ -77,6 +77,7 @@ export default new Vuex.Store({
     },
     SET_BLOGS_DISPLAY(state, payload) {
       state.blogsDisplay = state.blogs.slice(payload.start, payload.end);
+      console.log(state.blogsDisplay)
     },
     SET_BLOG_CATEGORIES(state, blogs) {
       state.blogCategories = blogs;
@@ -98,22 +99,23 @@ export default new Vuex.Store({
     fetchArticles(context, payload) {
       ArticleService.getArticles()
         .then(response => {
-          context.commit("SET_ARTICLES", response.data);
+          context.commit("SET_ARTICLES", response.data.sviProizvodi);
           context.commit("SET_ARTICLES_DISPLAY", payload);
         })
         .catch(error => console.log(error.response));
     },
-    fetchMessages(context) {
-      ArticleService.getMessages()
+    fetchMessages(context, payload) {
+      ArticleService.getMessages(payload)
         .then(response => {
-          context.commit("SET_MESSAGES", response.data);
+          console.log(response.data.komentari)
+          context.commit("SET_MESSAGES", response.data.komentari);
         })
         .catch(error => console.log(error.response));
     },
     fetchArticlesByCategory(context, payload) {
       ArticleService.getArticles(payload.cat_id)
         .then(response => {
-          context.commit("SET_ARTICLES", response.data);
+          context.commit("SET_ARTICLES", response.data.sviProizvodi);
           context.commit("SET_ARTICLES_DISPLAY", payload.range);
         })
         .catch(error => console.log(error.response));
@@ -133,14 +135,18 @@ export default new Vuex.Store({
     fetchArticleCategories(context) {
       ArticleService.getArticleCategories()
         .then(response => {
-          context.commit("SET_ARTICLE_CATEGORIES", response.data);
+          context.commit("SET_ARTICLE_CATEGORIES", response.data.proizvodi);
         })
         .catch(error => console.log(error.response));
     },
+    // getArticle(context, payload){
+    //   context.commit("SET_ARTICLE", payload);
+    // },
     fetchArticle(context, payload) {
       ArticleService.getArticle(payload)
         .then(response => {
-          context.commit("SET_ARTICLE", response.data);
+          
+          context.commit("SET_ARTICLE", response.data.product);
         })
         .catch(error => console.log(error.response));
     },
@@ -155,6 +161,7 @@ export default new Vuex.Store({
     fetchBlogs(context, payload) {
       BlogService.getBlogs()
         .then(response => {
+          console.log(response.data)
           context.commit("SET_BLOGS", response.data);
           context.commit("SET_BLOGS_DISPLAY", payload);
         })

@@ -6,13 +6,13 @@
       <li
         v-for="(category, index) in categories"
         :key="index"
-        @click="search(category.id)"
+        
       >
-        <p>{{ category.title }}</p>
+        <p @click="search(category.katId)">{{ category.katNaziv }}</p>
         <ul>
-          <li v-for="(item, index) in category.items" :key="index">
-            {{ item.title }}
-            <span class="right">({{ item.items.length }})</span>
+          <li class="sub-category" v-for="(item, index) in category.podkatData" :key="index">
+            {{ item.podNaziv }}
+            <span class="right">({{ item.kolicina }})</span>
           </li>
         </ul>
         <div v-show="index != categories.length - 1" class="list-divider"></div>
@@ -58,6 +58,15 @@ export default {
 .category-list p {
   font-size: 1.3em;
   margin-bottom: 0.3em;
+  cursor: pointer;
+}
+
+.category-list p:hover {
+  color: #1976d2;
+}
+
+.sub-category:hover{
+  font-weight: bold;
 }
 
 .list-divider {

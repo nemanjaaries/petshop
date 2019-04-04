@@ -46,9 +46,14 @@ export default {
   margin-bottom: 20px;
 }
 .blog-left {
+  
 }
+
 .blog-right {
   padding: 0 20px;
+}
+.blog-text{
+  
 }
 @media only screen and (max-width: 600px) {
   .blog-right {

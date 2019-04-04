@@ -97,7 +97,7 @@ export default {
 
     this.$store.dispatch("fetchBlogs", this.pageRange);
 
-    this.$store.dispatch("fetchBlogCategories");
+    //this.$store.dispatch("fetchBlogCategories");
     window.addEventListener("resize", this.handleResize);
     this.handleResize();
   },

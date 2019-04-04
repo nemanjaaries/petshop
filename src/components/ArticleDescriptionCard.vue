@@ -3,25 +3,18 @@
     <div class="title">Opis</div>
     <div class="text">
       <p class="mb-0">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae,
-        sit? Unde laborum eligendi quas id architecto distinctio accusantium,
-        saepe modi consectetur magni at neque. Inventore, qui exercitationem
-        maxime ipsam esse odio recusandae ipsum possimus! Laudantium fugiat
-        expedita dolorem fugit nulla distinctio, ipsa, aspernatur est eveniet
-        praesentium debitis, eligendi earum? Soluta expedita quisquam quaerat
-        quo dolore ullam, quod a, veritatis distinctio vero sapiente ducimus
-        doloremque delectus odit vitae natus hic fugiat molestias perspiciatis,
-        voluptates totam? Consequatur pariatur molestiae perferendis nemo,
-        aliquid odit voluptates voluptate dolorum consectetur dicta harum ad
-        repudiandae quo molestias ab repellat ex eaque accusamus laborum! Rerum,
-        aliquam maxime.
+        {{description}}
       </p>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props:{
+    description: String
+  }
+};
 </script>
 
 <style scoped>

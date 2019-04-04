@@ -8,13 +8,13 @@
 
     <v-card-title primary-title>
       <div>
-        <h3 class="title indigo--text">{{ article.title }}</h3>
-        <h3 class="title mb-2 indigo--text">{{ article.color }}</h3>
+        <h3 class="title indigo--text">{{ article.pro_naziv }}</h3>
+        <!-- <h3 class="title mb-2 indigo--text">{{ article.color }}</h3> -->
         <p class="headline font-weight-bold primary--text ma-0">
-          {{ article.price }} RSD
+          {{ article.pro_akcijskacena }} RSD
         </p>
         <p class="ma-0 subheading grey--text font-weight-medium">
-          <strike>{{ article.oldPrice }} RSD</strike>
+          <strike>{{ article.pro_cena }} RSD</strike>
         </p>
 
         <p v-if="article.inStock" class="mt-3">
@@ -55,7 +55,7 @@ export default {
   },
   computed: {
     route() {
-      return "/article/" + this.article.id;
+      return "/article/" + this.article.pro_id;
     }
   }
 };

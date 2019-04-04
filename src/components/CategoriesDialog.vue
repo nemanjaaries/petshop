@@ -27,15 +27,15 @@
           :key="index"
         >
           <template v-slot:header>
-            <div>{{ item.title }}</div>
+            <div>{{ item.katNaziv }}</div>
           </template>
           <v-card>
             <v-card-text
-              @click="search(item.id)"
+              @click="search(item.katId)"
               class="px-5"
-              v-for="(sub, index) in item.items"
+              v-for="(sub, index) in item.podkatData"
               :key="index"
-              >{{ sub.title }}</v-card-text
+              >{{ sub.podNaziv }}</v-card-text
             >
           </v-card>
         </v-expansion-panel-content>

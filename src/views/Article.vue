@@ -1,7 +1,7 @@
 <template>
   <div class="articles">
     <v-container>
-      <BaseHeader :head="article.title" subhead="provereno" />
+      <BaseHeader :head="article.pro_naziv" subhead="provereno" />
       <v-layout row wrap>
         <v-flex xs12 hidden-md-and-up class="text-xs-center">
           <CategoriesDialog :categories="articleCategories" />
@@ -41,19 +41,19 @@
                     </p>
                   </v-flex>
                   <v-flex class="xs2">
-                    <p>{{ article.shortDescription }}</p>
+                    <p>{{ article.pro_opis }}</p>
                   </v-flex>
                   <v-spacer></v-spacer>
                   <v-flex class="xs2">
                     <p class="primary--text" :class="fontSize">
-                      Cena: {{ article.price }} din.
+                      Cena: {{ article.pro_akcijskacena }} din.
                     </p>
                   </v-flex>
                 </v-layout>
               </v-flex>
               <v-flex class="xs12 py-4 divider"></v-flex>
               <v-flex class="xs12">
-                <ArticleDescriptionCard />
+                <ArticleDescriptionCard :description="article.pro_text"/>
               </v-flex>
               <v-flex class="xs12">
                 <div class="mt-4">
@@ -63,7 +63,7 @@
                 <div
                   class="messages"
                   v-for="message in messages"
-                  :key="message.id"
+                  :key="message.kom_id"
                 >
                   <MessageCard :message="message" />
                 </div>
@@ -116,7 +116,7 @@ export default {
   created() {
     this.$store.dispatch("fetchArticleCategories");
     this.$store.dispatch("fetchArticle", this.id);
-    this.$store.dispatch("fetchMessages");
+    this.$store.dispatch("fetchMessages", this.id);
     window.addEventListener("resize", this.handleResize);
     this.handleResize();
   },
