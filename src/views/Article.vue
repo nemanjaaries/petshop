@@ -53,7 +53,7 @@
               </v-flex>
               <v-flex class="xs12 py-4 divider"></v-flex>
               <v-flex class="xs12">
-                <ArticleDescriptionCard :description="article.pro_text"/>
+                <ArticleDescriptionCard :description="article.pro_text" />
               </v-flex>
               <v-flex class="xs12">
                 <div class="mt-4">
@@ -111,7 +111,12 @@ export default {
           return "display-3";
       }
     },
-    ...mapState(["articleCategories", "article", "messages"])
+    //...mapState(["articleCategories", "article", "messages"])
+    ...mapState({
+      articleCategories: state => state.article.articleCategories,
+      article: state => state.article.article,
+      messages: state => state.messages
+    })
   },
   created() {
     this.$store.dispatch("fetchArticleCategories");

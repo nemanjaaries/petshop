@@ -87,7 +87,11 @@ export default {
       };
     },
     ...mapState(["blogs", "blogsDisplay", "blogCategories"]),
-    ...mapGetters([])
+    ...mapState({
+      blogs: state => state.blog.blogs,
+      blogsDisplay: state => state.blog.blogsDisplay,
+      blogCategories: state => state.blog.blogCategories
+    })
   },
   created() {
     // this.$store.dispatch("fetchArticles", {
@@ -97,7 +101,7 @@ export default {
 
     this.$store.dispatch("fetchBlogs", this.pageRange);
 
-    //this.$store.dispatch("fetchBlogCategories");
+    this.$store.dispatch("fetchBlogCategories");
     window.addEventListener("resize", this.handleResize);
     this.handleResize();
   },

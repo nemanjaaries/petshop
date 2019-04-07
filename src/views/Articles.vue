@@ -93,12 +93,17 @@ export default {
         end: this.currentPage * this.articlesPerPage
       };
     },
-    ...mapState([
-      "articles",
-      "articlesDisplay",
-      "articlesTotal",
-      "articleCategories"
-    ]),
+    ...mapState({
+      articles: state => state.article.articles,
+      articlesDisplay: state => state.article.articlesDisplay,
+      articleCategories: state => state.article.articleCategories
+    }),
+    // ...mapState([
+    //   "articles",
+    //   "articlesDisplay",
+    //   "articlesTotal",
+    //   "articleCategories"
+    // ]),
     ...mapGetters([])
   },
   created() {
