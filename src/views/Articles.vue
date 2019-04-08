@@ -12,6 +12,7 @@
         </v-flex>
         <v-flex md2 hidden-sm-and-down>
           <CategoryList
+            v-on:resetCurrentPage="currentPage = 1"
             :categories="articleCategories"
             :currentPage="currentPage"
             :articlesPerPage="articlesPerPage"
@@ -44,6 +45,7 @@
               <v-flex xs12>
                 <div class="text-xs-center">
                   <v-pagination
+                    v-if="pages > 1"
                     @input="setPage"
                     v-model="currentPage"
                     :length="pages"
@@ -153,6 +155,9 @@ export default {
   width: 100%;
   float: right;
   color: red;
+}
+.articles-container{
+  min-height: 904px;
 }
 
 @media screen and (max-width: 700px) {

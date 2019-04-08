@@ -35,7 +35,7 @@ export default {
   },
   data() {
     return {
-      link: "/blog"
+      link: "/blog/"+ this.blog.id
     };
   }
 };

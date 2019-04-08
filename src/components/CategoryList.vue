@@ -35,6 +35,8 @@ export default {
         range: { start: 0, end: this.articlesPerPage },
         cat_id
       });
+      this.$emit('resetCurrentPage');
+      this.$emit('redirect', cat_id);
     }
   }
 };

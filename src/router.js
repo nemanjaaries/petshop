@@ -5,6 +5,7 @@ import About from "./views/About.vue";
 import Articles from "./views/Articles.vue";
 import Blog from "./views/Blog.vue";
 import Blogs from "./views/Blogs.vue";
+import SingleBlog from "./views/SingleBlog.vue";
 import Contact from "./views/Contact.vue";
 import Article from "./views/Article.vue";
 import BlogPreview from "./views/BlogPreview.vue";
@@ -55,6 +56,13 @@ export default new Router({
       path: "/blogs",
       name: "blogs",
       component: Blogs
+    }
+    ,
+    {
+      path: "/blog/:id",
+      name: "sigleBlog",
+      component: SingleBlog,
+      props: true
     }
     // {
     //   path: "/about",

@@ -2,6 +2,7 @@ import BlogService from "@/services/BlogService.js";
 
 export const state = {
   blogs: [],
+  blog: {},
   blogsDisplay: [],
   blogCategories: []
 };
@@ -16,6 +17,9 @@ export const mutations = {
     state.blogsDisplay = state.blogs.slice(payload.start, payload.end);
     console.log(state.blogsDisplay);
   },
+  SET_BLOG(state, blog) {
+    state.blog = blog;
+  },
   SET_BLOG_CATEGORIES(state, blogs) {
     state.blogCategories = blogs;
   }
@@ -28,6 +32,13 @@ export const actions = {
         console.log(response.data);
         context.commit("SET_BLOGS", response.data);
         context.commit("SET_BLOGS_DISPLAY", payload);
+      })
+      .catch(error => console.log(error.response));
+  },
+  fetchBlog(context, payload) {
+    BlogService.getBlog(payload)
+      .then(response => {
+        context.commit("SET_BLOG", response.data);  
       })
       .catch(error => console.log(error.response));
   },
