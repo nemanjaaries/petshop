@@ -33,6 +33,6 @@ export default {
     return instance.get("/categories1");
   },
   getBlog(id) {
-    return instance.get("/blog/" + id);
+    return instance.get("/blogs/" + id);
   }
 };

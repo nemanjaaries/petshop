@@ -7,7 +7,7 @@
           <CategoriesDialog :categories="articleCategories" />
         </v-flex>
         <v-flex md2 hidden-sm-and-down>
-          <CategoryList :categories="articleCategories" />
+          <CategoryList :categories="articleCategories" v-on:redirect="redirectPage($event)" />
         </v-flex>
         <v-spacer></v-spacer>
         <v-flex xs12 md10>
@@ -135,6 +135,10 @@ export default {
       if (window.innerWidth > 640) {
         this.dialog = false;
       }
+    },
+    redirectPage(cat_id){
+      alert(cat_id)
+      //this.$router.push({ name: 'articles'})
     }
   }
 };
