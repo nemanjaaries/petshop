@@ -1,11 +1,11 @@
 import axios from "axios";
 import NProgress from "nprogress";
 
-// const instance = axios.create({
-//   baseURL: "http://localhost:3000",
-//   timeout: 1000,
-//   headers: { "X-Custom-Header": "foobar" }
-// });
+const instance = axios.create({
+  baseURL: "http://localhost:3000",
+  timeout: 1000,
+  headers: { "X-Custom-Header": "foobar" }
+});
 
 // instance.interceptors.request.use(config => {
 //   NProgress.start();
@@ -33,23 +33,24 @@ axiosInstance.interceptors.response.use(response => {
 });
 
 export default {
-  // getArticles(perPage, page) {
-  //   return instance.get("/articles?_limit=" + perPage + "&_page=" + page);
-  // },
-  getArticles(category_id = null) {
-    if (category_id) {
-      return axiosInstance.get("/allProizvodiOnKatID", {
-        params:{
-          id: category_id
-        }
-      });
-    } else {
-      return axiosInstance.get("/proizvodiAPI");
-    }
+  getArticles(perPage, page) {
+    return instance.get("/articles?_limit=" + perPage + "&_page=" + page);
   },
+  // getArticles(category_id = null) {
+  //   if (category_id) {
+  //     return axiosInstance.get("/allProizvodiOnKatID", {
+  //       params:{
+  //         id: category_id
+  //       }
+  //     });
+  //   } else {
+  //     return axiosInstance.get("/proizvodiAPI");
+  //   }
+  // },
+
   getMessages(id) {
     return axiosInstance.get("/komentariAPI", {
-      params:{
+      params: {
         proId: 10
       }
     });
@@ -59,7 +60,7 @@ export default {
   },
   getArticle(id) {
     return axiosInstance.get("/product", {
-      params:{
+      params: {
         id: id
       }
     });

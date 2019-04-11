@@ -5,12 +5,16 @@ export const state = {
   articlesDisplay: [],
   // articlesTotal: 0,
   articleCategories: [],
-  article: {}
+  article: {},
+  totalPages: null
 };
 
 export const mutations = {
   SET_ARTICLES(state, articles) {
     state.articles = articles;
+  },
+  SET_TOTAL_PAGES(state, value) {
+    state.totalPages = value;
   },
   SET_ARTICLES_DISPLAY(state, payload) {
     state.articlesDisplay = state.articles.slice(payload.start, payload.end);
@@ -37,11 +41,13 @@ export const mutations = {
 };
 
 export const actions = {
-  fetchArticles(context, payload) {
-    ArticleService.getArticles()
+  fetchArticles(context, { perPage, page }) {
+    ArticleService.getArticles(perPage, page)
       .then(response => {
-        context.commit("SET_ARTICLES", response.data.sviProizvodi);
-        context.commit("SET_ARTICLES_DISPLAY", payload);
+        context.commit("SET_ARTICLES", response.data);
+        context.commit("SET_TOTAL_PAGES", 4);
+        //context.commit("SET_ARTICLES", response.data.sviProizvodi);
+        //context.commit("SET_ARTICLES_DISPLAY", payload);
       })
       .catch(error => console.log(error.response));
   },

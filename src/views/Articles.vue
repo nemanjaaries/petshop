@@ -2,6 +2,7 @@
   <div class="articles">
     <v-container>
       <BaseHeader head="Nasi proizvodi" subhead="Dugogodisnji kvalitet!" />
+
       <v-layout row wrap>
         <v-flex xs12 hidden-md-and-up class="text-xs-center">
           <CategoriesDialog
@@ -32,7 +33,7 @@
                 ></v-select>
               </v-flex>
               <v-flex
-                v-for="(article, index) in articlesDisplay"
+                v-for="(article, index) in articles"
                 :key="index"
                 d-flex
                 xs12
@@ -46,7 +47,7 @@
                   <v-pagination
                     @input="setPage"
                     v-model="currentPage"
-                    :length="pages"
+                    :length="totalPages"
                   ></v-pagination>
                 </div>
               </v-flex>
@@ -79,13 +80,22 @@ export default {
         height: 0,
         width: 0
       },
-      currentPage: 1,
+
       articlesPerPage: 6
     };
   },
   computed: {
+    currentPage: {
+      get: function() {
+        return parseInt(this.$route.query.page) || 1;
+      },
+      set: function(value) {
+        this.$router.push({ name: "articles", query: { page: value } });
+      }
+    },
     pages() {
-      return Math.ceil(this.articles.length / this.articlesPerPage);
+      //return Math.ceil(this.articles.length / this.articlesPerPage);
+      return 5;
     },
     pageRange() {
       return {
@@ -94,6 +104,7 @@ export default {
       };
     },
     ...mapState({
+      totalPages: state => state.article.totalPages,
       articles: state => state.article.articles,
       articlesDisplay: state => state.article.articlesDisplay,
       articleCategories: state => state.article.articleCategories
@@ -112,7 +123,10 @@ export default {
     //   page: this.curentPage
     // });
 
-    this.$store.dispatch("fetchArticles", this.pageRange);
+    this.$store.dispatch("fetchArticles", {
+      perPage: 4,
+      page: this.currentPage
+    });
 
     this.$store.dispatch("fetchArticleCategories");
     window.addEventListener("resize", this.handleResize);
